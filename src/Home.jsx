@@ -1,3 +1,6 @@
+import Navbar from './navbar'
+
+
 const mockEmployees = [
   {
     id: 0,
@@ -23,7 +26,8 @@ const Home = () => {
 
   return (
     <div>
-
+      <Navbar />
+        <p>HELLOO</p>
     </div>
   )
 }

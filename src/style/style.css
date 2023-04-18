@@ -1,0 +1,28 @@
+.thisNav {
+    background-color: #6495ed;
+    display: flex;
+    justify-content: end;
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.thisNav li {
+    background-color: #79ed64;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.thisNav a {
+    text-decoration: none;
+    margin: 10px;
+}
+
+.owner {
+    text-align: center;
+}
+
+img {
+    width:  50%
+}
