@@ -24,6 +24,7 @@ const mockEmployees = [
 ]
 
 const Home = () => {
+  const [employees, setEmployees] = useState(mockEmployees)
   const [choices, setChoices] = useState()
 
   
@@ -32,10 +33,43 @@ const Home = () => {
   let showTable
   if (choices === 'User') {
     showChoices = <h1>Home - User Sector</h1>;
+    showTable =           <table>
+    <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Position</th>
+    </tr>
+    <tr>
+        <td>DATA-NAME</td>
+        <td>DATA-Last</td>
+        <td>DATA-Position</td>
+    </tr>
+    </table>;
 
   } else if (choices === 'Admin') {
     showChoices = <h1>Home - Admin Sector</h1>;
-    showTable = <h1>Table</h1>;
+    showTable =             <div>
+    <h3>Create User Here</h3>
+    <input type="text" placeholder='Name'/>
+    <input type="text" placeholder='Last Name'/>
+    <input type="text" placeholder='Position'/>
+    <button>SAVE</button>
+
+    <table>
+    <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Position</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>mockEmployees</td>
+        <td>DATA-Last</td>
+        <td>DATA-Position</td>
+        <td><button>DELETE</button></td>
+    </tr>
+    </table>
+  </div>;
 
   } else {
     showChoices = <h1>React - Assessment</h1>;
@@ -61,43 +95,24 @@ const Home = () => {
         <br /><br />
 
         {/* START - USER SECTOR */}
-          <table>
-          <tr>
-              <th>Name</th>
-              <th>Last Name</th>
-              <th>Position</th>
-          </tr>
-          <tr>
-              <td>DATA-NAME</td>
-              <td>DATA-Last</td>
-              <td>DATA-Position</td>
-          </tr>
-          </table>
+        { showTable }
+
+        <table>
+        {employees.map(item => {
+          return(
+            <tr>
+              <td>{item.name}</td>
+              <td>{item.lastname}</td>
+              <td>{item.position}</td>
+            </tr>
+          )
+        })}
+        </table>
+
         {/* END - USER SECTOR */}
 
         {/* START - ADMIN SECTOR */}
-            <div>
-              <h3>Create User Here</h3>
-              <input type="text" placeholder='Name'/>
-              <input type="text" placeholder='Last Name'/>
-              <input type="text" placeholder='Position'/>
-              <button>SAVE</button>
-      
-              <table>
-              <tr>
-                  <th>Name</th>
-                  <th>Last Name</th>
-                  <th>Position</th>
-                  <th>Action</th>
-              </tr>
-              <tr>
-                  <td>DATA-NAME</td>
-                  <td>DATA-Last</td>
-                  <td>DATA-Position</td>
-                  <td><button>DELETE</button></td>
-              </tr>
-              </table>
-            </div>
+        
         {/* END - ADMIN SECTOR */}
 
 
